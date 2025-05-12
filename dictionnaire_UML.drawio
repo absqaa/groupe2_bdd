@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36 OPR/118.0.0.0" version="26.1.1" pages="2">
   <diagram id="6Sm_0GnPmlF0oke3MPKw" name="diagramme_classe">
-    <mxGraphModel dx="3160" dy="1376" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="3395" dy="1533" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -384,7 +384,7 @@
           <mxGeometry y="122" width="194.29" height="8" as="geometry" />
         </mxCell>
         <mxCell id="Liz70xh0E30Ar9lDT0JQ-79" value="Facture" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
-          <mxGeometry x="-540" y="400" width="194.29" height="155" as="geometry">
+          <mxGeometry x="-585" y="383" width="194.29" height="155" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -530,10 +530,10 @@
         <mxCell id="LIPTSqcopBgNWa-e8DmY-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;startArrow=none;" parent="1" source="Liz70xh0E30Ar9lDT0JQ-82" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="80" y="480" />
-              <mxPoint x="80" y="480" />
+              <mxPoint x="80" y="463" />
+              <mxPoint x="80" y="460" />
             </Array>
-            <mxPoint x="80" y="483" as="targetPoint" />
+            <mxPoint x="80" y="460" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="LIPTSqcopBgNWa-e8DmY-40" value="1..n" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="LIPTSqcopBgNWa-e8DmY-39" vertex="1" connectable="0">
@@ -547,12 +547,12 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="LIPTSqcopBgNWa-e8DmY-42" value="est facturé" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="39.99709677419338" y="490" as="geometry">
+          <mxGeometry x="42.99709677419338" y="468" as="geometry">
             <mxPoint x="9" y="3" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="LIPTSqcopBgNWa-e8DmY-43" value="est émise pour" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-310.0029032258066" y="494" as="geometry">
+          <mxGeometry x="-356.0029032258066" y="472" as="geometry">
             <mxPoint x="3" as="offset" />
           </mxGeometry>
         </mxCell>
