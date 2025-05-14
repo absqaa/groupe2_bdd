@@ -774,7 +774,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="vfOFxiVTFta1VzeJZyCZ" name="modèle_relationnel">
-    <mxGraphModel dx="3035" dy="1302" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="3070" dy="1326" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1216,8 +1216,8 @@
             <mxPoint x="79.99999999999993" y="173.0079999999998" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="uPuDeAvWnkZBqjxd4NfP-147" value="FK_DOSSIER_PATIENT" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="-100" y="143" width="160" height="30" as="geometry" />
+        <mxCell id="uPuDeAvWnkZBqjxd4NfP-147" value="FK_PROFIL_MEDICAL" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="-95" y="143" width="150" height="30" as="geometry" />
         </mxCell>
         <mxCell id="uPuDeAvWnkZBqjxd4NfP-148" value="FK_PRESCRIPTION_MEDECIN" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="-1010" y="1230" width="200" height="30" as="geometry" />
@@ -1407,7 +1407,7 @@
           <mxGeometry y="122" width="194.29" height="8" as="geometry" />
         </mxCell>
         <mxCell id="QU5SUbdfMxHjPgERnhRS-7" value="Antécédents" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
-          <mxGeometry x="-554.29" y="94" width="194.29" height="150" as="geometry">
+          <mxGeometry x="-687.29" y="94" width="194.29" height="150" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
