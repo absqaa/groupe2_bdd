@@ -774,7 +774,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="vfOFxiVTFta1VzeJZyCZ" name="modèle_relationnel">
-    <mxGraphModel dx="3070" dy="1326" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="2826" dy="1160" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1425,6 +1425,15 @@
         </mxCell>
         <mxCell id="QU5SUbdfMxHjPgERnhRS-12" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="QU5SUbdfMxHjPgERnhRS-7">
           <mxGeometry y="122" width="194.29" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="GoRobd4gFBEXfn3TYlUb-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-493" y="171" as="sourcePoint" />
+            <mxPoint x="-314.28999999999996" y="171" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GoRobd4gFBEXfn3TYlUb-2" value="FK_PROFIL_MEDICAL" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-475" y="137" width="150" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
