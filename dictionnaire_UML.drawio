@@ -1417,9 +1417,6 @@
         <mxCell id="wjlmJUlJ3HKsd7XINLQR-2" value="id_assurance: int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;fontStyle=4" vertex="1" parent="wjlmJUlJ3HKsd7XINLQR-1">
           <mxGeometry y="26" width="194.29" height="18" as="geometry" />
         </mxCell>
-        <mxCell id="wjlmJUlJ3HKsd7XINLQR-3" value="montant: float" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="wjlmJUlJ3HKsd7XINLQR-1">
-          <mxGeometry y="44" width="194.29" height="26" as="geometry" />
-        </mxCell>
         <mxCell id="wjlmJUlJ3HKsd7XINLQR-9" value="FK_FACTURE_PATIENT" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="-771" y="346" width="160" height="30" as="geometry" />
         </mxCell>
