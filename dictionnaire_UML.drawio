@@ -1410,7 +1410,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="wjlmJUlJ3HKsd7XINLQR-1" value="Assurance" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="1">
-          <mxGeometry x="-1010" y="310" width="194.29" height="80" as="geometry">
+          <mxGeometry x="-1010" y="332" width="194.29" height="80" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
