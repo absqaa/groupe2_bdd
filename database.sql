@@ -4,16 +4,11 @@ CREATE TABLE Médicament (
     description TEXT
 );
 
-CREATE TABLE Commande (
-    id_commande INT PRIMARY KEY,
-    id_médicament INT,
-    id_prescription INT
-);
-
 CREATE TABLE Prescription (
     id_prescription INT PRIMARY KEY,
     id_médecin INT,
     id_consultation INT,
+    id_médicament INT,
     date DATETIME,
     description TEXT
 );
@@ -34,7 +29,6 @@ CREATE TABLE Patient (
     sexe CHAR,
     langue VARCHAR(50),
     hospitalise CHAR,
-    DATE_création DATETIME
 );
 
 CREATE TABLE Contact (
@@ -152,26 +146,15 @@ CREATE TABLE Équipement (
 );
 
 
-
-
 -- Adding foreign key constraints
 
--- Commande constraints
-ALTER TABLE Commande 
-    ADD CONSTRAINT FK_COMMANDE_MEDICAMENT
-    FOREIGN KEY (id_médicament) 
-    REFERENCES Médicament (id_médicament);
-
-ALTER TABLE Commande 
-    ADD CONSTRAINT FK_COMMANDE_PRESCRIPTION
-    FOREIGN KEY (id_prescription) 
-    REFERENCES Prescription (id_prescription);
 
 -- prescription constraints
 ALTER TABLE Prescription 
     ADD CONSTRAINT FK_PRESCRIPTION_MEDECIN
     FOREIGN KEY (id_médecin) 
     REFERENCES Médecin (id_personnel);
+
 ALTER TABLE Prescription 
     ADD CONSTRAINT FK_PRESCRIPTION_CONSULTATION
     FOREIGN KEY (id_consultation) 
