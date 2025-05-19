@@ -802,7 +802,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="vfOFxiVTFta1VzeJZyCZ" name="modèle_relationnel">
-    <mxGraphModel dx="2671" dy="1054" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="2948" dy="1243" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1413,14 +1413,14 @@
         <mxCell id="p1fQQS-xMqzGaWY1hUp9-2" value="FK_HOSPITALISATION_CHAMBRE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;" parent="1" vertex="1">
           <mxGeometry x="439.9964806727908" y="575.0033656638713" width="220" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="OeS46mG-GQaxHDaQ9bVD-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.999;exitY=0.557;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1" source="uPuDeAvWnkZBqjxd4NfP-56">
+        <mxCell id="OeS46mG-GQaxHDaQ9bVD-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.002;exitY=0.554;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1" source="uPuDeAvWnkZBqjxd4NfP-56">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1397" y="70" />
-              <mxPoint x="1507" y="71" />
+              <mxPoint x="1395" y="70" />
+              <mxPoint x="1505" y="71" />
             </Array>
-            <mxPoint x="1300" y="71" as="sourcePoint" />
-            <mxPoint x="1507" y="70" as="targetPoint" />
+            <mxPoint x="1297.1457099999998" y="70.48199999999986" as="sourcePoint" />
+            <mxPoint x="1505" y="70" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
