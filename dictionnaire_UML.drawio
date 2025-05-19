@@ -967,7 +967,7 @@
           <mxGeometry y="64" width="194.29" height="26" as="geometry" />
         </mxCell>
         <mxCell id="uPuDeAvWnkZBqjxd4NfP-58" value="Équipement" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
-          <mxGeometry x="1530" y="-32" width="194.29" height="182" as="geometry">
+          <mxGeometry x="1530" y="-11" width="194.29" height="182" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -1313,7 +1313,7 @@
           <mxGeometry x="-734" y="606" width="190" height="30" as="geometry" />
         </mxCell>
         <mxCell id="OeS46mG-GQaxHDaQ9bVD-6" value="FK_EQUIPEMENT_SERVICE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="1315" y="39" width="180" height="30" as="geometry" />
+          <mxGeometry x="1315" y="40" width="180" height="30" as="geometry" />
         </mxCell>
         <mxCell id="QU5SUbdfMxHjPgERnhRS-1" value="Contact" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="-310" y="450" width="194.29" height="155" as="geometry">
