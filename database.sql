@@ -1,3 +1,44 @@
+CREATE TABLE Médicament (
+    id_médicament INT PRIMARY KEY,
+    nom VARCHAR(50),
+    description TEXT,
+);
+
+CREATE TABLE Commande (
+    id_commande INT PRIMARY KEY,
+    id_médicament INT,
+    id_prescription INT
+);
+
+CREATE TABLE Prescription (
+    id_prescription INT PRIMARY KEY,
+    id_médecin INT,
+    id_médicament INT,
+    date DATETIME,
+    description TEXT
+);
+
+CREATE TABLE Consultation (
+    id_consultation INT PRIMARY KEY,
+    id_patient INT,
+    id_médecin INT,
+    date DATETIME,
+    id_consultation_ref INT,
+    id_prescription INT,
+    motif TEXT
+);
+
+CREATE TABLE Patient (
+    id_patient INT PRIMARY KEY,
+    NomComplet VARCHAR(50),
+    DATE_naissance DATE,
+    sexe CHAR,
+    num_assurance VARCHAR(50),
+    langue VARCHAR(50),
+    hospitalise CHAR,
+    DATE_création DATETIME,
+);
+
 CREATE TABLE Personnel (
     id_personnel INT PRIMARY KEY,
     nom VARCHAR(50),
@@ -11,18 +52,6 @@ CREATE TABLE Personnel (
     responsable VARCHAR(50)
 );
 
-CREATE TABLE Patient (
-    id_patient INT PRIMARY KEY,
-    NomComplet VARCHAR(50),
-    DATE_naissance DATE,
-    sexe CHAR,
-    langue VARCHAR(50),
-    hospitalise CHAR,
-    DATE_création DATETIME,
-    id_chambre INT,
-    id_dossier_médical INT
-    id_contact INT
-);
 
 CREATE TABLE Contact (
     id_contact INT PRIMARY KEY,
@@ -90,12 +119,6 @@ CREATE TABLE Intendance (
 );
 
 
-CREATE TABLE Médicament (
-    id_médicament INT PRIMARY KEY,
-    nom VARCHAR(50),
-    description TEXT,
-);
-
 CREATE TABLE Hospitalisation (
     id_hospitalisation INT PRIMARY KEY,
     id_médecin INT,
@@ -104,24 +127,6 @@ CREATE TABLE Hospitalisation (
     id_chambre INT,
     id_service INT,
     id_infirmier INT
-);
-
-CREATE TABLE Ordonnance (
-    id_Ordonnance INT PRIMARY KEY,
-    id_médecin INT,
-    id_médicament INT,
-    date DATETIME,
-    description TEXT
-);
-
-CREATE TABLE Consultation (
-    id_consultation INT PRIMARY KEY,
-    id_patient INT,
-    id_médecin INT,
-    date DATETIME,
-    id_consultation_ref INT,
-    id_Ordonnance INT,
-    motif TEXT
 );
 
 CREATE TABLE Urgence (
@@ -138,11 +143,7 @@ CREATE TABLE Facture (
     date_ DATETIME
 );
 
-CREATE TABLE Commande (
-    id_commande INT PRIMARY KEY,
-    id_médicament INT,
-    id_Ordonnance INT
-);
+
 
 CREATE TABLE Suivi (
     id_hospitalisation INT,
@@ -151,8 +152,46 @@ CREATE TABLE Suivi (
 );
 
 
+-- Adding foreign key constraints
 
--- Remove invalid constraint for Médicament (no Pharmacie table or id_pharmacie column)
+-- Commande constraints
+ALTER TABLE Commande 
+    ADD CONSTRAINT FK_COMMANDE_MEDICAMENT
+    FOREIGN KEY (id_médicament) 
+    REFERENCES Médicament (id_médicament);
+
+ALTER TABLE Commande 
+    ADD CONSTRAINT FK_COMMANDE_PRESCRIPTION
+    FOREIGN KEY (id_prescription) 
+    REFERENCES Prescription (id_prescription);
+
+-- prescription constraints
+ALTER TABLE Prescription 
+    ADD CONSTRAINT FK_PRESCRIPTION_MEDECIN
+    FOREIGN KEY (id_médecin) 
+    REFERENCES Médecin (id_personnel);
+
+ALTER TABLE Prescription 
+    ADD CONSTRAINT FK_PRESCRIPTION_CONSULTATION
+    FOREIGN KEY (id_consultation) 
+    REFERENCES Médicament (id_consultation);
+
+-- Consultation constraints
+ALTER TABLE Consultation 
+    ADD CONSTRAINT FK_CONSULTATION_PATIENT
+    FOREIGN KEY (id_patient) 
+    REFERENCES Patient (id_patient);
+
+ALTER TABLE Consultation 
+    ADD CONSTRAINT FK_CONSULTATION_MEDECIN
+    FOREIGN KEY (id_médecin) 
+    REFERENCES Médecin (id_personnel);
+
+ALTER TABLE Consultation 
+    ADD CONSTRAINT FK_CONSULTATION_REF
+    FOREIGN KEY (id_consultation_ref) 
+    REFERENCES Consultation (id_consultation);
+
 
 -- Patient constraints
 ALTER TABLE Patient 
@@ -265,37 +304,6 @@ ALTER TABLE Hospitalisation
     FOREIGN KEY (id_infirmier) 
     REFERENCES Infirmier (id_personnel);
 
--- Ordonnance constraints
-ALTER TABLE Ordonnance 
-    ADD CONSTRAINT FK_Ordonnance_MEDECIN
-    FOREIGN KEY (id_médecin) 
-    REFERENCES Médecin (id_personnel);
-
-ALTER TABLE Ordonnance 
-    ADD CONSTRAINT FK_Ordonnance_MEDICAMENT
-    FOREIGN KEY (id_médicament) 
-    REFERENCES Médicament (id_médicament);
-
--- Consultation constraints
-ALTER TABLE Consultation 
-    ADD CONSTRAINT FK_CONSULTATION_PATIENT
-    FOREIGN KEY (id_patient) 
-    REFERENCES Patient (id_patient);
-
-ALTER TABLE Consultation 
-    ADD CONSTRAINT FK_CONSULTATION_MEDECIN
-    FOREIGN KEY (id_médecin) 
-    REFERENCES Médecin (id_personnel);
-
-ALTER TABLE Consultation 
-    ADD CONSTRAINT FK_CONSULTATION_REF
-    FOREIGN KEY (id_consultation_ref) 
-    REFERENCES Consultation (id_consultation);
-
-ALTER TABLE Consultation 
-    ADD CONSTRAINT FK_CONSULTATION_Ordonnance
-    FOREIGN KEY (id_Ordonnance) 
-    REFERENCES Ordonnance (id_Ordonnance);
 
 -- Urgence constraint
 ALTER TABLE Urgence 
@@ -309,16 +317,6 @@ ALTER TABLE Facture
     FOREIGN KEY (id_hospitalisation)
     REFERENCES Hospitalisation (id_hospitalisation);
 
--- Commande constraints
-ALTER TABLE Commande 
-    ADD CONSTRAINT FK_COMMANDE_MEDICAMENT
-    FOREIGN KEY (id_médicament) 
-    REFERENCES Médicament (id_médicament);
-
-ALTER TABLE Commande 
-    ADD CONSTRAINT FK_COMMANDE_Ordonnance
-    FOREIGN KEY (id_Ordonnance) 
-    REFERENCES Ordonnance (id_Ordonnance);
 
 -- Suivi constraints
 ALTER TABLE Suivi 
