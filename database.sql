@@ -28,7 +28,7 @@ CREATE TABLE Patient (
     DATE_naissance DATE,
     sexe CHAR,
     langue VARCHAR(50),
-    hospitalise CHAR,
+    hospitalise CHAR
 );
 
 CREATE TABLE Contact (
