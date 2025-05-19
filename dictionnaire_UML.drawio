@@ -802,7 +802,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="vfOFxiVTFta1VzeJZyCZ" name="modèle_relationnel">
-    <mxGraphModel dx="3253" dy="1451" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="2671" dy="1054" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -965,14 +965,6 @@
         </mxCell>
         <mxCell id="uPuDeAvWnkZBqjxd4NfP-56" value="id_equipement: INT                                       &lt;fk&gt;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="uPuDeAvWnkZBqjxd4NfP-53" vertex="1">
           <mxGeometry y="64" width="194.29" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="OeS46mG-GQaxHDaQ9bVD-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="uPuDeAvWnkZBqjxd4NfP-53" edge="1" source="uPuDeAvWnkZBqjxd4NfP-56">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="400.95000000000005" y="79" />
-            </Array>
-            <mxPoint x="401.08000000000015" y="75" as="targetPoint" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="uPuDeAvWnkZBqjxd4NfP-58" value="Équipement" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
           <mxGeometry x="1506.13" y="-36" width="194.29" height="182" as="geometry">
@@ -1420,6 +1412,16 @@
         </mxCell>
         <mxCell id="p1fQQS-xMqzGaWY1hUp9-2" value="FK_HOSPITALISATION_CHAMBRE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;rotation=0;" parent="1" vertex="1">
           <mxGeometry x="439.9964806727908" y="575.0033656638713" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="OeS46mG-GQaxHDaQ9bVD-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.999;exitY=0.557;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1" source="uPuDeAvWnkZBqjxd4NfP-56">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1397" y="70" />
+              <mxPoint x="1507" y="71" />
+            </Array>
+            <mxPoint x="1300" y="71" as="sourcePoint" />
+            <mxPoint x="1507" y="70" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
