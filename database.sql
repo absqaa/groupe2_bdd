@@ -13,7 +13,7 @@ CREATE TABLE Commande (
 CREATE TABLE Prescription (
     id_prescription INT PRIMARY KEY,
     id_médecin INT,
-    id_médicament INT,
+    id_consultation INT,
     date DATETIME,
     description TEXT
 );
@@ -172,6 +172,10 @@ ALTER TABLE Prescription
     ADD CONSTRAINT FK_PRESCRIPTION_MEDECIN
     FOREIGN KEY (id_médecin) 
     REFERENCES Médecin (id_personnel);
+ALTER TABLE Prescription 
+    ADD CONSTRAINT FK_PRESCRIPTION_CONSULTATION
+    FOREIGN KEY (id_consultation) 
+    REFERENCES Consultation (id_consultation);
 
 -- Removed invalid FK_PRESCRIPTION_CONSULTATION: Prescription does not have id_consultation, and Médicament does not have id_consultation.
 
