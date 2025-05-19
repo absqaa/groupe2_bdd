@@ -264,10 +264,8 @@ ALTER TABLE Hospitalisation
 ALTER TABLE Hospitalisation 
     ADD CONSTRAINT FK_HOSPITALISATION_CHAMBRE
     FOREIGN KEY (id_chambre) 
-ALTER TABLE Hospitalisation 
-    ADD CONSTRAINT FK_HOSPITALISATION_CHAMBRE
-    FOREIGN KEY (id_chambre) 
     REFERENCES Chambre (id_chambre);
+
 ALTER TABLE Hospitalisation
     ADD CONSTRAINT FK_HOSPITALISATION_INFIRMIER
     FOREIGN KEY (id_infirmier) 
