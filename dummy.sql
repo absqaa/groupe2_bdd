@@ -19,9 +19,9 @@ INSERT INTO Stockage VALUES (1, 'Stockage radiologie');
 INSERT INTO Stockage VALUES (2, 'Stockage urgences');
 
 -- Personnel
-INSERT INTO Personnel VALUES (1, 'Martin', 'Paul', '2010-01-01', 3500, 'Radiologie', 'Radiologie', 'Médecin', 'Français', 'Dr. House');
-INSERT INTO Personnel VALUES (2, 'Durand', 'Sophie', '2015-03-15', 2800, 'Urgences', 'Urgences', 'Infirmier', 'Français', 'Dr. House');
-INSERT INTO Personnel VALUES (3, 'Lemoine', 'Pierre', '2018-06-20', 2000, 'Intendance', 'Urgences', 'Intendant', 'Français', 'Mme. Martin');
+INSERT INTO Personnel VALUES (1, 'Martin', 'Paul', '2010-01-01', 3500, 'Radiologie', 'Français', 'Dr. House');
+INSERT INTO Personnel VALUES (2, 'Durand', 'Sophie', '2015-03-15', 2800, 'Urgences', 'Français', 'Dr. House');
+INSERT INTO Personnel VALUES (3, 'Lemoine', 'Pierre', '2018-06-20', 2000, 'Intendance', 'Français', 'Mme. Martin');
 
 -- Médecin, Infirmier, Intendance
 INSERT INTO Médecin VALUES (1, 'LIC12345');

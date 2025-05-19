@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 try:
     from faker import Faker
     fake = Faker('fr_FR')
+    language = ['fr_FR', 'en_US', 'de_CH', 'it_IT', 'ar_EG', 'en_IN']
 except ImportError:
     fake = None
 
@@ -14,9 +15,12 @@ def random_date(start, end):
     )
 
 def generate_names(n, start=1):
+    global fake, language
     names = []
     for i in range(start, start + n):
+
         if fake:
+            fake = Faker(random.choice(language))
             gender = random.choice(['M', 'F'])
             name = fake.name_male() if gender == 'M' else fake.name_female()
             langue = random.choice(['Français', 'Arabe', 'Espagnol', 'Anglais', 'Italien', 'Allemand', 'Tchèque', 'Russe', 'Somali', 'Malayalam'])
@@ -92,7 +96,9 @@ def generate_antecedents(n=5, start=1):
 
 def main():
     n = 50 
-    i = 5
+    i = 56
+    
+    
     lines = []
     lines += ["-- Patients"]
     lines += generate_patients(n, start=i)

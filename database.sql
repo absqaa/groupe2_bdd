@@ -77,8 +77,6 @@ CREATE TABLE Personnel (
     DATE_embauche DATE,
     salaire FLOAT,
     affectation_specialite VARCHAR(50),
-    service_affectation VARCHAR(50),
-    statut VARCHAR(50),
     langue VARCHAR(50),
     responsable VARCHAR(50)
 );
