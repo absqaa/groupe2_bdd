@@ -73,6 +73,14 @@ INSERT INTO Antécédents VALUES (5, 5, 'Diabète type 2');
 -- Médicament
 INSERT INTO Médicament VALUES (1, 'Paracétamol', 'Antidouleur');
 INSERT INTO Médicament VALUES (2, 'Ibuprofène', 'Anti-inflammatoire');
+INSERT INTO Médicament VALUES (3, 'Amoxicilline', 'Antibiotique');
+INSERT INTO Médicament VALUES (4, 'Aspirine', 'Antipyrétique');
+INSERT INTO Médicament VALUES (5, 'Metformine', 'Antidiabétique');
+INSERT INTO Médicament VALUES (6, 'Loratadine', 'Antihistaminique');
+INSERT INTO Médicament VALUES (7, 'Oméprazole', 'Inhibiteur de la pompe à protons');
+INSERT INTO Médicament VALUES (8, 'Salbutamol', 'Bronchodilatateur');
+INSERT INTO Médicament VALUES (9, 'Simvastatine', 'Hypocholestérolémiant');
+INSERT INTO Médicament VALUES (10, 'Diazépam', 'Anxiolytique');
 
 -- Consultation
 INSERT INTO Consultation VALUES (1, 1, 1, '2024-05-12 14:00:00', NULL, 'Fièvre');
@@ -82,11 +90,19 @@ INSERT INTO Consultation VALUES (4, 4, 1, '2024-05-16 11:00:00', NULL, 'Vaccinat
 INSERT INTO Consultation VALUES (5, 5, 1, '2024-05-17 12:00:00', NULL, 'Douleurs abdominales');
 
 -- Prescription
-INSERT INTO Prescription VALUES (1, 1, 1, 1, '2024-05-12 15:00:00', 'Prendre 2x par jour');
-INSERT INTO Prescription VALUES (2, 1, 2, 2, '2024-05-13 16:00:00', 'Prendre après repas');
-INSERT INTO Prescription VALUES (3, 1, 3, 1, '2024-05-15 10:30:00', 'Prendre 1x par jour');
-INSERT INTO Prescription VALUES (4, 1, 4, 2, '2024-05-16 11:30:00', 'Prendre 3x par jour');
-INSERT INTO Prescription VALUES (5, 1, 5, 1, '2024-05-17 12:30:00', 'Prendre après repas');
+INSERT INTO Prescription VALUES (1, 1, 1, '2024-05-12 15:00:00', 'Prendre 2x par jour');
+INSERT INTO Prescription VALUES (2, 2, 2, '2024-05-13 16:00:00', 'Prendre après repas');
+INSERT INTO Prescription VALUES (3, 3, 1, '2024-05-15 10:30:00', 'Prendre 1x par jour');
+INSERT INTO Prescription VALUES (4, 4, 2, '2024-05-16 11:30:00', 'Prendre 3x par jour');
+INSERT INTO Prescription VALUES (5, 5, 1, '2024-05-17 12:30:00', 'Prendre après repas');
+
+-- Commande
+INSERT INTO Commande VALUES (1, 1, 1);
+INSERT INTO Commande VALUES (2, 2, 2);
+INSERT INTO Commande VALUES (3, 1, 3);
+INSERT INTO Commande VALUES (4, 2, 4);
+INSERT INTO Commande VALUES (5, 1, 5);
+
 
 -- Urgence
 INSERT INTO Urgence VALUES (1, 2, 1, '2024-05-14 18:00:00', 'Crise asthme');

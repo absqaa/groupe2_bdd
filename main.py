@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 try:
     from faker import Faker
     fake = Faker('fr_FR')
-    language = ['fr_FR', 'en_US', 'de_CH', 'it_IT', 'ar_EG', 'en_IN']
+    language = ['fr_CH', 'en_US', 'de_CH', 'it_IT', 'ar_EG', 'en_IN']
 except ImportError:
     fake = None
 
