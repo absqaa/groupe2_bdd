@@ -94,25 +94,40 @@ def generate_antecedents(n=5, start=1):
         )
     return antecedents
 
-
+def generate_urgences(n=5, start=1):
+    urgences = []
+    for i in range(n):
+        patient_id = random.randint(start, start + n - 1)
+        date_ = datetime(2024, 5, 10, 9, 0, 0) + timedelta(days=i)
+        urgences.append(
+            f"INSERT INTO Urgence VALUES ({start + i}, {patient_id}, '{date_.strftime('%Y-%m-%d %H:%M:%S')}', 'Urgence {i}');"
+        )
+    return urgences
 
 
 def main():
-    n = 50 
-    i = 6
-    lines = []
-    lines += ["-- Patients"]
-    lines += generate_patients(n, start=i)
-    lines += ["\n-- Contact"]
-    lines += generate_contacts(n, start=i)
-    lines += ["\n-- Facture"]
-    lines += generate_factures(n, start=i)
-    lines += ["\n-- Assurance"]
-    lines += generate_assurances(n, start=i)
-    lines += ["\n-- Profil_médical"]
-    lines += generate_profils(n, start=i)
-    lines += ["\n-- Antécédents"]
-    lines += generate_antecedents(n, start=i)
+    n = 10
+    i = 106
+    urgences = True
+    if urgences:
+        lines = []
+        lines += ["-- Urgences"]
+        lines += generate_urgences(n, start=i)
+
+    else:
+        lines = []
+        lines += ["-- Patients"]
+        lines += generate_patients(n, start=i)
+        lines += ["\n-- Contact"]
+        lines += generate_contacts(n, start=i)
+        lines += ["\n-- Facture"]
+        lines += generate_factures(n, start=i)
+        lines += ["\n-- Assurance"]
+        lines += generate_assurances(n, start=i)
+        lines += ["\n-- Profil_médical"]
+        lines += generate_profils(n, start=i)
+        lines += ["\n-- Antécédents"]
+        lines += generate_antecedents(n, start=i)
 
     with open("dummy_generated.sql", "w", encoding="utf-8") as f:
         for line in lines:
