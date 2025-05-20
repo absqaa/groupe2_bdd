@@ -7,7 +7,6 @@ CREATE TABLE Médicament (
 CREATE TABLE Prescription (
     id_prescription INT PRIMARY KEY,
     id_consultation INT,
-    id_médicament INT,
     date DATETIME,
     description TEXT
 );

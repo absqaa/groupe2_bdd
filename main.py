@@ -94,26 +94,102 @@ def generate_antecedents(n=5, start=1):
         )
     return antecedents
 
-def generate_urgences(n=5, start=1):
+def generate_urgences(n=5, start=1, patients=0):
     urgences = []
     for i in range(n):
-        patient_id = random.randint(start, start + n - 1)
-        date_ = datetime(2024, 5, 10, 9, 0, 0) + timedelta(days=i)
+        patient_id = random.randint(start, start + patients)
+        medecin_id = random.choice([1, 4, 5, 6])
+        start_date = datetime(2020, 1, 1)
+        end_date = datetime.now()
+        date_ = random_date(start_date, end_date)
+        motifs = [
+            "Crise asthme",
+            "Douleur thoracique",
+            "Fièvre élevée",
+            "Blessure sportive",
+            "Accident domestique",
+            "Intoxication alimentaire",
+            "Perte de connaissance",
+            "Brûlure",
+            "Fracture",
+            "Malaise"
+        ]
+        motif = motifs[i % len(motifs)]
         urgences.append(
-            f"INSERT INTO Urgence VALUES ({start + i}, {patient_id}, '{date_.strftime('%Y-%m-%d %H:%M:%S')}', 'Urgence {i}');"
+            f"INSERT INTO Urgence VALUES ({start + i}, {patient_id}, {medecin_id}, '{date_.strftime('%Y-%m-%d %H:%M:%S')}', '{motif}');"
         )
     return urgences
 
+def generate_consultations(n=5, start=1, patients=0):
+    consultations = []
+    for i in range(n):
+        patient_id = random.randint(start, start + patients)
+        medecin_id = random.choice([1, 4, 5, 6])
+        start_date = datetime(2020, 1, 1)
+        end_date = datetime.now()
+        date_ = random_date(start_date, end_date)
+        motifs = [
+            "Contrôle annuel",
+            "Suivi diabète",
+            "Consultation post-opératoire",
+            "Douleur chronique",
+            "Vaccination",
+            "Bilan sanguin",
+            "Prescription renouvellement",
+            "Conseil nutritionnel",
+            "Examen préventif",
+            "Consultation générale"
+        ]
+        motif = motifs[i % len(motifs)]
+        # id_consultation_ref: 10% chance to reference a previous consultation, else NULL
+        if i > 0 and random.random() < 0.1:
+            id_consultation_ref = start + random.randint(0, i - 1)
+        else:
+            id_consultation_ref = "NULL"
+        consultations.append(
+            f"INSERT INTO Consultation VALUES ({start + i}, {patient_id}, {medecin_id}, '{date_.strftime('%Y-%m-%d %H:%M:%S')}', {id_consultation_ref}, '{motif}');"
+        )
+    return consultations
 
+def generate_hospitalisations(n=5, start=1, patients=0):
+    hospitalisations = []
+    motifs = [
+        "Observation post-opératoire",
+        "Traitement infection",
+        "Rééducation",
+        "Surveillance cardiaque",
+        "Chirurgie programmée",
+        "Soins palliatifs",
+        "Accident grave",
+        "Complications diabète",
+        "Transfusion sanguine",
+        "Soins intensifs"
+    ]
+    for i in range(n):
+        patient_id = random.randint(start, start + patients)
+        medecin_id = random.choice([1, 4, 5, 6])
+        chambre_id = random.randint(1, 2)
+        infirmier_id = random.choice([1, 7])
+        motif = motifs[i % len(motifs)]
+        hospitalisations.append(
+            f"INSERT INTO Hospitalisation VALUES ({start + i}, {medecin_id}, {patient_id}, '{motif}', {chambre_id}, {infirmier_id});"
+        )
+    return hospitalisations
 def main():
-    n = 10
+    n = 1000
     i = 106
-    urgences = True
-    if urgences:
+    nbr_patients = 1106
+    demande = 'hospitalisations'  # 'hospitalisations', 'urgences', 'consultations', 'patients', 'contacts', 'factures', 'assurances', 'profils', 'antecedents'
+    
+    if demande == 'urgences':
         lines = []
-        lines += ["-- Urgences"]
-        lines += generate_urgences(n, start=i)
-
+        lines += generate_urgences(n=100, start=102, patients=nbr_patients)
+    elif demande == 'consultations':
+        lines = []
+        lines += generate_consultations(n=500, start=162, patients=nbr_patients)
+    elif demande == 'hospitalisations':
+        lines = []
+        lines += generate_hospitalisations(n=100, start=37, patients=nbr_patients)
     else:
         lines = []
         lines += ["-- Patients"]
