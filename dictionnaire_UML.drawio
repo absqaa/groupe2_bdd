@@ -440,12 +440,12 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="o44cOPp-4JualUAl15hT-32" value="inclut" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-989.9963157894738" y="724" as="geometry">
+          <mxGeometry x="-986.9963157894738" y="722" as="geometry">
             <mxPoint x="1" y="3" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="o44cOPp-4JualUAl15hT-33" value="0..n" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-1008" y="729" as="geometry">
+          <mxGeometry x="-1008" y="726" as="geometry">
             <mxPoint x="25" y="17" as="offset" />
           </mxGeometry>
         </mxCell>
