@@ -13,6 +13,12 @@ CREATE TABLE Prescription (
     description TEXT
 );
 
+CREATE TABLE Commande (
+    id_commande INT PRIMARY KEY,
+    id_médicament INT,
+    id_prescription INT,
+);
+
 CREATE TABLE Consultation (
     id_consultation INT PRIMARY KEY,
     id_patient INT,
@@ -146,12 +152,18 @@ CREATE TABLE Équipement (
 
 -- Adding foreign key constraints
 
+-- Commande constraints
+ALTER TABLE Commande 
+    ADD CONSTRAINT FK_COMMANDE_MEDICAMENT
+    FOREIGN KEY (id_médicament) 
+    REFERENCES Médicament (id_médicament);
 
+ALTER TABLE Commande
+    ADD CONSTRAINT FK_COMMANDE_PRESCRIPTION
+    FOREIGN KEY (id_prescription) 
+    REFERENCES Prescription (id_prescription);
+    
 -- prescription constraints
-ALTER TABLE Prescription 
-    ADD CONSTRAINT FK_PRESCRIPTION_MEDECIN
-    FOREIGN KEY (id_médecin) 
-    REFERENCES Médecin (id_personnel);
 
 ALTER TABLE Prescription 
     ADD CONSTRAINT FK_PRESCRIPTION_CONSULTATION
