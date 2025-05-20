@@ -436,7 +436,7 @@
         </mxCell>
         <mxCell id="o44cOPp-4JualUAl15hT-31" value="figure dans" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="o44cOPp-4JualUAl15hT-29" vertex="1" connectable="0">
           <mxGeometry x="-0.8594" relative="1" as="geometry">
-            <mxPoint x="13" y="-10" as="offset" />
+            <mxPoint x="4" y="-10" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="o44cOPp-4JualUAl15hT-32" value="inclut" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
@@ -450,7 +450,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="o44cOPp-4JualUAl15hT-34" value="1..n" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-859" y="384" as="geometry">
+          <mxGeometry x="-1082" y="392" as="geometry">
             <mxPoint x="25" y="17" as="offset" />
           </mxGeometry>
         </mxCell>
