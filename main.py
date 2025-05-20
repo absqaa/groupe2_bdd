@@ -94,11 +94,12 @@ def generate_antecedents(n=5, start=1):
         )
     return antecedents
 
+
+
+
 def main():
     n = 50 
     i = 6
-    
-    
     lines = []
     lines += ["-- Patients"]
     lines += generate_patients(n, start=i)
