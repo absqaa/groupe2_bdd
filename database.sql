@@ -16,7 +16,7 @@ CREATE TABLE Prescription (
 CREATE TABLE Commande (
     id_commande INT PRIMARY KEY,
     id_médicament INT,
-    id_prescription INT,
+    id_prescription INT
 );
 
 CREATE TABLE Consultation (
@@ -162,7 +162,7 @@ ALTER TABLE Commande
     ADD CONSTRAINT FK_COMMANDE_PRESCRIPTION
     FOREIGN KEY (id_prescription) 
     REFERENCES Prescription (id_prescription);
-    
+
 -- prescription constraints
 
 ALTER TABLE Prescription 
