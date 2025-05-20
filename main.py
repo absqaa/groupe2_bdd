@@ -96,7 +96,7 @@ def generate_antecedents(n=5, start=1):
 
 def main():
     n = 50 
-    i = 56
+    i = 6
     
     
     lines = []
