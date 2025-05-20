@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="27.0.6" pages="2">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36 OPR/118.0.0.0" version="27.0.6" pages="2">
   <diagram id="6Sm_0GnPmlF0oke3MPKw" name="diagramme_classe">
-    <mxGraphModel dx="3669" dy="907" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="2999" dy="1248" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -243,7 +243,7 @@
           <mxGeometry y="70" width="194.29" height="26" as="geometry" />
         </mxCell>
         <mxCell id="Liz70xh0E30Ar9lDT0JQ-87" value="Médicament" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="1" vertex="1">
-          <mxGeometry x="-1399" y="655" width="194.29" height="125" as="geometry">
+          <mxGeometry x="-1040" y="310" width="194.29" height="125" as="geometry">
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -423,9 +423,15 @@
         <mxCell id="o44cOPp-4JualUAl15hT-16" value="0..n" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
           <mxGeometry x="-447.0007142857138" y="844.9999999999999" as="geometry" />
         </mxCell>
-        <mxCell id="o44cOPp-4JualUAl15hT-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;startFill=0;" parent="1" source="Liz70xh0E30Ar9lDT0JQ-90" edge="1">
+        <mxCell id="o44cOPp-4JualUAl15hT-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="Liz70xh0E30Ar9lDT0JQ-90" edge="1" target="Liz70xh0E30Ar9lDT0JQ-55">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-969" y="738" as="targetPoint" />
+            <mxPoint x="-1079" y="759" as="targetPoint" />
+            <mxPoint x="-1150" y="414" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="-1040" y="400" />
+              <mxPoint x="-1130" y="400" />
+              <mxPoint x="-1130" y="734" />
+            </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="o44cOPp-4JualUAl15hT-31" value="figure dans" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="o44cOPp-4JualUAl15hT-29" vertex="1" connectable="0">
@@ -444,7 +450,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="o44cOPp-4JualUAl15hT-34" value="1..n" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
-          <mxGeometry x="-1218" y="729" as="geometry">
+          <mxGeometry x="-859" y="384" as="geometry">
             <mxPoint x="25" y="17" as="offset" />
           </mxGeometry>
         </mxCell>
@@ -702,7 +708,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="vfOFxiVTFta1VzeJZyCZ" name="modèle_relationnel">
-    <mxGraphModel dx="3164" dy="1251" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
