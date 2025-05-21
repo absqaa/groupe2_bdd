@@ -484,8 +484,11 @@
             <mxRectangle x="550" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="o44cOPp-4JualUAl15hT-52" value="description: TEXT/CLOB" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="o44cOPp-4JualUAl15hT-49" vertex="1">
+        <mxCell id="o44cOPp-4JualUAl15hT-52" value="id_stockage : int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" parent="o44cOPp-4JualUAl15hT-49" vertex="1">
           <mxGeometry y="26" width="194.29" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="mM1REG8mSLfnEv3wDu_5-4" value="description: TEXT/CLOB" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="o44cOPp-4JualUAl15hT-49">
+          <mxGeometry y="52" width="194.29" height="26" as="geometry" />
         </mxCell>
         <mxCell id="o44cOPp-4JualUAl15hT-58" value="émane de" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="1" vertex="1" connectable="0">
           <mxGeometry x="-743.9983017315278" y="758" as="geometry">
