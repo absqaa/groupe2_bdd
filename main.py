@@ -131,8 +131,8 @@ def generate_antecedents(n=5, start=1):
     return antecedents
 def generate_urgences(n=5, start=1, patients=0):
     urgences = []
-    for i in range(n):
-        patient_id = random.randint(start, start + patients)
+    for i in range(1, n + 1):
+        patient_id = random.randint(start, start + patients-2)
         medecin_id = random.choice([1, 4, 5, 6])
         start_date = datetime(2020, 1, 1)
         end_date = datetime.now()
@@ -151,14 +151,14 @@ def generate_urgences(n=5, start=1, patients=0):
         ]
         motif = motifs[i % len(motifs)]
         urgences.append(
-            f"INSERT INTO Urgence VALUES ({start}, {patient_id}, {medecin_id}, '{date_.strftime('%Y-%m-%d %H:%M:%S')}', '{motif}');"
+            f"INSERT INTO Urgence VALUES ({i}, {patient_id}, {medecin_id}, '{date_.strftime('%Y-%m-%d %H:%M:%S')}', '{motif}');"
         )
     return urgences
 
 def generate_consultations(n=5, start=1, patients=0):
     consultations = []
     for i in range(n):
-        patient_id = random.randint(start, start + patients)
+        patient_id = random.randint(1, patients)
         medecin_id = random.choice([1, 4, 5, 6])
         start_date = datetime(2020, 1, 1)
         end_date = datetime.now()
@@ -178,11 +178,11 @@ def generate_consultations(n=5, start=1, patients=0):
         motif = motifs[i % len(motifs)]
         # id_consultation_ref: 10% chance to reference a previous consultation, else NULL
         if i > 0 and random.random() < 0.1:
-            id_consultation_ref = start + random.randint(0, i - 1)
+            id_consultation_ref = "NULL"
         else:
             id_consultation_ref = "NULL"
         consultations.append(
-            f"INSERT INTO Consultation VALUES ({start}, {patient_id}, {medecin_id}, '{date_.strftime('%Y-%m-%d %H:%M:%S')}', {id_consultation_ref}, '{motif}');"
+            f"INSERT INTO Consultation VALUES ({i}, {patient_id}, {medecin_id}, '{date_.strftime('%Y-%m-%d %H:%M:%S')}', {id_consultation_ref}, '{motif}');"
         )
     return consultations
 
@@ -201,13 +201,13 @@ def generate_hospitalisations(n=5, start=1, patients=0):
         "Soins intensifs"
     ]
     for i in range(n):
-        patient_id = random.randint(start, start + patients)
+        patient_id = random.randint(start, patients)
         medecin_id = random.choice([1, 4, 5, 6])
         chambre_id = random.randint(1, 2)
-        infirmier_id = random.choice([1, 7])
+        infirmier_id = random.choice([2, 7, 8])
         motif = motifs[i % len(motifs)]
         hospitalisations.append(
-            f"INSERT INTO Hospitalisation VALUES ({start}, {medecin_id}, {patient_id}, '{motif}', {chambre_id}, {infirmier_id});"
+            f"INSERT INTO Hospitalisation VALUES ({i+1}, {medecin_id}, {patient_id}, '{motif}', {chambre_id}, {infirmier_id});"
         )
     return hospitalisations
 
@@ -230,7 +230,7 @@ def generate_prescriptions(n=5, start=1, consultations=0):
         consultation_id = random.randint(1, consultations)
         desc = instructions[i % len(instructions)]
         prescriptions.append(
-            f"INSERT INTO Prescription VALUES ({start}, {consultation_id}, '{desc}');"
+            f"INSERT INTO Prescription VALUES ({start+i+1}, {consultation_id}, '{desc}');"
         )
     return prescriptions
 
@@ -240,31 +240,31 @@ def generate_commandes(n=5, start=1, prescriptions=0):
         id_medicament = random.randint(1, 10)
         id_prescription = random.randint(1, prescriptions)
         commandes.append(
-            f"INSERT INTO Commande VALUES ({start + i}, {id_medicament}, {id_prescription});"
+            f"INSERT INTO Commande VALUES ({start + i+1}, {id_medicament}, {id_prescription});"
         )
     return commandes
 def main():
-    n = 1000
-    i = 106
-    nbr_patients = 1106
-    demande = 'c'  # 'hspitalisations', 'urgences', 'consultations', 'patients', 'contacts', 'factures', 'assurances', 'profils', 'antecedents'
+    n = 100
+    i = 6
+    nbr_patients = 1100
+    demande = 'commandes'  # 'hspitalisations', 'urgences', 'consultations', 'patients', 'contacts', 'factures', 'assurances', 'profils', 'antecedents'
     
     if demande == 'urgences':
         lines = []
-        lines += generate_urgences(n=100, start=102, patients=nbr_patients)
+        lines += generate_urgences(n=100, start=1, patients=nbr_patients)
     elif demande == 'consultations':
         lines = []
         lines += generate_consultations(n=500, start=162, patients=nbr_patients)
     elif demande == 'hospitalisations':
         lines = []
-        lines += generate_hospitalisations(n=100, start=37, patients=nbr_patients)
+        lines += generate_hospitalisations(n=100, start=1, patients=nbr_patients)
     elif demande == 'prescriptions':    
         lines = []
-        lines += generate_prescriptions(n=250, start=154, consultations=206)
+        lines += generate_prescriptions(n=250, start=5, consultations=500)
         
     elif demande == 'commandes':
         lines = []
-        lines += generate_commandes(n=250, start=220, prescriptions=204)
+        lines += generate_commandes(n=300, start=5, prescriptions=255)
     else:
         lines = []
         lines += ["-- Patients"]
