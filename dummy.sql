@@ -90,11 +90,11 @@ INSERT INTO Consultation VALUES (4, 4, 1, '2024-05-16 11:00:00', NULL, 'Vaccinat
 INSERT INTO Consultation VALUES (5, 5, 1, '2024-05-17 12:00:00', NULL, 'Douleurs abdominales');
 
 -- Prescription
-INSERT INTO Prescription VALUES (1, 1, 1, '2024-05-12 15:00:00', 'Prendre 2x par jour');
-INSERT INTO Prescription VALUES (2, 2, 2, '2024-05-13 16:00:00', 'Prendre après repas');
-INSERT INTO Prescription VALUES (3, 3, 1, '2024-05-15 10:30:00', 'Prendre 1x par jour');
-INSERT INTO Prescription VALUES (4, 4, 2, '2024-05-16 11:30:00', 'Prendre 3x par jour');
-INSERT INTO Prescription VALUES (5, 5, 1, '2024-05-17 12:30:00', 'Prendre après repas');
+INSERT INTO Prescription VALUES (1, 1, 'Prendre 2x par jour');
+INSERT INTO Prescription VALUES (2, 2, 'Prendre après repas');
+INSERT INTO Prescription VALUES (3, 3, 'Prendre 1x par jour');
+INSERT INTO Prescription VALUES (4, 4, 'Prendre 3x par jour');
+INSERT INTO Prescription VALUES (5, 5, 'Prendre après repas');
 
 -- Commande
 INSERT INTO Commande VALUES (1, 1, 1);

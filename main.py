@@ -192,17 +192,27 @@ def generate_prescriptions(n=5, start=1, consultations=0):
         "Prendre pendant 7 jours"
     ]
     for i in range(n):
-        consultation_id = random.randint(0, consultations)
+        consultation_id = random.randint(1, consultations)
         desc = instructions[i % len(instructions)]
         prescriptions.append(
-            f"INSERT INTO Prescription VALUES ({start + i}, {consultation_id}, , '{desc}');"
+            f"INSERT INTO Prescription VALUES ({start + i}, {consultation_id}, '{desc}');"
         )
     return prescriptions
+
+def generate_commandes(n=5, start=1, prescriptions=0):
+    commandes = []
+    for i in range(n):
+        id_medicament = random.randint(1, 10)
+        id_prescription = random.randint(1, prescriptions)
+        commandes.append(
+            f"INSERT INTO Commande VALUES ({start + i}, {id_medicament}, {id_prescription});"
+        )
+    return commandes
 def main():
     n = 1000
     i = 106
     nbr_patients = 1106
-    demande = 'prescriptions'  # 'hospitalisations', 'urgences', 'consultations', 'patients', 'contacts', 'factures', 'assurances', 'profils', 'antecedents'
+    demande = 'commandes'  # 'hospitalisations', 'urgences', 'consultations', 'patients', 'contacts', 'factures', 'assurances', 'profils', 'antecedents'
     
     if demande == 'urgences':
         lines = []
@@ -215,7 +225,11 @@ def main():
         lines += generate_hospitalisations(n=100, start=37, patients=nbr_patients)
     elif demande == 'prescriptions':    
         lines = []
-        lines += generate_prescriptions(n=250, start=5, consultations=206)
+        lines += generate_prescriptions(n=250, start=154, consultations=206)
+        
+    elif demande == 'commandes':
+        lines = []
+        lines += generate_commandes(n=250, start=220, prescriptions=204)
     else:
         lines = []
         lines += ["-- Patients"]
