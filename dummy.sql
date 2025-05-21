@@ -36,11 +36,11 @@ INSERT INTO Patient VALUES (4, 'Lucie Martin', '2002-03-15', 'F', 'Français', '
 INSERT INTO Patient VALUES (5, 'Carlos Gomez', '1988-09-10', 'M', 'Espagnol', 'N');
 
 -- Contact
-INSERT INTO Contact VALUES (1, 1, '123 rue A', '0600000001', 'ASSUR123');
-INSERT INTO Contact VALUES (2, 2, '456 rue B', '0600000002', 'ASSUR456');
-INSERT INTO Contact VALUES (3, 3, '789 rue C', '0600000003', 'ASSUR789');
-INSERT INTO Contact VALUES (4, 4, '321 rue D', '0600000004', 'ASSUR321');
-INSERT INTO Contact VALUES (5, 5, '654 rue E', '0600000005', 'ASSUR654');
+INSERT INTO Contact VALUES (1, 1, 'Genève', '0600000001', 'ASSUR123');
+INSERT INTO Contact VALUES (2, 2, 'Vaud', '0600000002', 'ASSUR456');
+INSERT INTO Contact VALUES (3, 3, 'Valais', '0600000003', 'ASSUR789');
+INSERT INTO Contact VALUES (4, 4, 'Fribourg', '0600000004', 'ASSUR321');
+INSERT INTO Contact VALUES (5, 5, 'Neuchâtel', '0600000005', 'ASSUR654');
 
 -- Facture
 INSERT INTO Facture VALUES (1, 1, 250.50, '2024-05-10 09:00:00');

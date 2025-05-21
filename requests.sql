@@ -1,4 +1,4 @@
---- 5.1.1
+--- 4.1.1
 SELECT
     m.nom AS NomMedicament,
     COUNT(pr.id_prescription) AS NombreDeUtilisations
@@ -9,7 +9,7 @@ GROUP BY m.nom
 ORDER BY NombreDeUtilisations DESC;
 
 
---- 5.1.2
+--- 4.1.2
 SELECT
     m.nom AS NomMedicament,
     COUNT(pr.id_prescription) AS NombreDeUtilisations
@@ -20,7 +20,7 @@ GROUP BY m.nom
 ORDER BY NombreDeUtilisations DESC;
 
 
---- 5.1.3
+--- 4.1.3
 SELECT
     p.NomComplet,
     SUM(f.montant) AS MontantàPayer,
@@ -33,7 +33,7 @@ JOIN Assurance AS a ON f.id_facture = a.id_facture
 JOIN Patient AS p ON f.id_patient = p.id_patient
 GROUP BY p.NomComplet;
 
---- 5.1.4
+--- 4.1.4
 SELECT
     DATE_FORMAT(date, '%Y-%m') AS MoisDeLUrgence,
     COUNT(id_urgence) AS NombreTotalUrgences
@@ -44,7 +44,7 @@ GROUP BY
 ORDER BY
     NombreTotalUrgences DESC;
 
---- 5.1.5
+--- 4.1.5
 SELECT
     p.NomComplet,
     a.traitements,
@@ -67,3 +67,18 @@ HAVING
     COUNT(h.id_hospitalisation) >= 2
 ORDER BY
 	NombreHospitalisationsRecentes DESC;
+
+
+-- -- 4.1.6
+
+DELIMITER $$
+CREATE TRIGGER trg_patient_hospitalise_on_urgence_admission
+AFTER INSERT ON Urgence
+FOR EACH ROW
+BEGIN
+    UPDATE Patient
+    SET hospitalise = 'O'
+    WHERE id_patient = NEW.id_patient
+    AND hospitalise = 'N';
+END$$
+DELIMITER ;

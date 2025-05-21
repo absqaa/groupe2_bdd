@@ -33,8 +33,14 @@ def generate_patients(n=5, start=1):
     patients = []
     for i in range(n):
         name, sexe, langue = names[i]
-        dob = datetime(1950, 1, 1) + timedelta(days=random.randint(0, 25000))
-        hospitalise = random.choice(['O', 'N'])
+        dob = datetime(1945, 1, 1) + timedelta(days=random.randint(0, 25000))
+        age = (datetime.now() - dob).days // 365
+        if age >= 70:
+            hospitalise = random.choices(['O', 'N'], weights=[0.8, 0.2])[0]
+        elif age < 25:
+            hospitalise = random.choices(['O', 'N'], weights=[0.1, 0.9])[0]
+        else:
+            hospitalise = random.choice(['O', 'N'])
         patients.append(
             f"INSERT INTO Patient VALUES ({start + i}, '{name}', '{dob.date()}', '{sexe}', '{langue}', '{hospitalise}');"
         )
@@ -43,7 +49,37 @@ def generate_patients(n=5, start=1):
 def generate_contacts(n=5, start=1):
     contacts = []
     for i in range(n):
-        adresse = f"{random.randint(1,999)} rue {chr(65+(start+i)%26)}"
+        cantons = [
+            ("Zurich", 60),  
+            ("Aargau", 20),  
+            ("Schwyz", 10),  
+            ("Zug", 10),     
+            ("Thurgau", 8),  
+            ("St. Gallen", 8),      
+            ("Bern", 8),
+            ("Vaud", 7),
+            ("Geneva", 5),
+            ("Lucerne", 5),
+            ("Ticino", 3),
+            ("Valais", 2),
+            ("Neuchâtel", 2),
+            ("Fribourg", 2),
+            ("Jura", 1),
+            ("Uri", 1),
+            ("Obwalden", 1),
+            ("Nidwalden", 1),
+            ("Glarus", 1),
+            ("Appenzell Innerrhoden", 1),
+            ("Appenzell Ausserrhoden", 1),
+            ("Basel-Stadt", 2),
+            ("Basel-Landschaft", 2),
+            ("Graubünden", 2),
+            ("Solothurn", 2),
+            ("Schaffhausen", 1)
+        ]
+        canton_names = [c[0] for c in cantons]
+        canton_weights = [c[1] for c in cantons]
+        adresse = random.choices(canton_names, weights=canton_weights, k=1)[0]
         telephone = f"06{random.randint(10000000,99999999)}"
         num_assurance = f"ASSUR{random.randint(100,999)}"
         contacts.append(
@@ -93,7 +129,6 @@ def generate_antecedents(n=5, start=1):
             f"INSERT INTO Antécédents VALUES ({start + i}, {start + i}, '{antecedents_list[i % len(antecedents_list)]}');"
         )
     return antecedents
-
 def generate_urgences(n=5, start=1, patients=0):
     urgences = []
     for i in range(n):
@@ -116,7 +151,7 @@ def generate_urgences(n=5, start=1, patients=0):
         ]
         motif = motifs[i % len(motifs)]
         urgences.append(
-            f"INSERT INTO Urgence VALUES ({start + i}, {patient_id}, {medecin_id}, '{date_.strftime('%Y-%m-%d %H:%M:%S')}', '{motif}');"
+            f"INSERT INTO Urgence VALUES ({start}, {patient_id}, {medecin_id}, '{date_.strftime('%Y-%m-%d %H:%M:%S')}', '{motif}');"
         )
     return urgences
 
@@ -147,7 +182,7 @@ def generate_consultations(n=5, start=1, patients=0):
         else:
             id_consultation_ref = "NULL"
         consultations.append(
-            f"INSERT INTO Consultation VALUES ({start + i}, {patient_id}, {medecin_id}, '{date_.strftime('%Y-%m-%d %H:%M:%S')}', {id_consultation_ref}, '{motif}');"
+            f"INSERT INTO Consultation VALUES ({start}, {patient_id}, {medecin_id}, '{date_.strftime('%Y-%m-%d %H:%M:%S')}', {id_consultation_ref}, '{motif}');"
         )
     return consultations
 
@@ -172,7 +207,7 @@ def generate_hospitalisations(n=5, start=1, patients=0):
         infirmier_id = random.choice([1, 7])
         motif = motifs[i % len(motifs)]
         hospitalisations.append(
-            f"INSERT INTO Hospitalisation VALUES ({start + i}, {medecin_id}, {patient_id}, '{motif}', {chambre_id}, {infirmier_id});"
+            f"INSERT INTO Hospitalisation VALUES ({start}, {medecin_id}, {patient_id}, '{motif}', {chambre_id}, {infirmier_id});"
         )
     return hospitalisations
 
@@ -195,7 +230,7 @@ def generate_prescriptions(n=5, start=1, consultations=0):
         consultation_id = random.randint(1, consultations)
         desc = instructions[i % len(instructions)]
         prescriptions.append(
-            f"INSERT INTO Prescription VALUES ({start + i}, {consultation_id}, '{desc}');"
+            f"INSERT INTO Prescription VALUES ({start}, {consultation_id}, '{desc}');"
         )
     return prescriptions
 
@@ -212,7 +247,7 @@ def main():
     n = 1000
     i = 106
     nbr_patients = 1106
-    demande = 'commandes'  # 'hospitalisations', 'urgences', 'consultations', 'patients', 'contacts', 'factures', 'assurances', 'profils', 'antecedents'
+    demande = 'c'  # 'hspitalisations', 'urgences', 'consultations', 'patients', 'contacts', 'factures', 'assurances', 'profils', 'antecedents'
     
     if demande == 'urgences':
         lines = []
@@ -251,3 +286,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
