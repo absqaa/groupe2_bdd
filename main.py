@@ -1,6 +1,14 @@
 import random
 from datetime import datetime, timedelta
 
+
+# Ce programme génère des requêtes SQL d'insertion pour remplir une base de données d'un hopital fictif.
+# Il utilise la bibliothèque Faker pour créer des noms réalistes dans différentes langues.
+# Les fonctions génèrent des données pour les patients, contacts, factures, assurances, profils médicaux,
+# antécédents, urgences, consultations, hospitalisations, prescriptions et commandes.
+# Le résultat est écrit dans un fichier "dummy_generated.sql" selon le type de données demandé.
+
+
 try:
     from faker import Faker
     fake = Faker('fr_FR')
