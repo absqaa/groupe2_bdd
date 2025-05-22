@@ -1,5 +1,5 @@
 
-INSERT INTO `patient` (`id_patient`, `NomComplet`, `DATE_naissance`, `sexe`, `langue`, `hospitalise`) VALUES
+`patient` (`id_patient`, `NomComplet`, `DATE_naissance`, `sexe`, `langue`, `hospitalise`) VALUES
 (1, 'Jean Dupont', '1980-05-12', 'M', 'Français', 'N'),
 (2, 'Marie Curie', '1990-11-23', 'F', 'Français', 'O'),
 (3, 'Ahmed Benali', '1975-07-22', 'M', 'Arabe', 'N'),
@@ -855,7 +855,7 @@ INSERT INTO `patient` (`id_patient`, `NomComplet`, `DATE_naissance`, `sexe`, `la
 (853, 'Stephen Lee', '2001-09-05', 'M', 'Arabe', 'N'),
 (854, 'Janet Jacobs', '2007-03-31', 'F', 'Allemand', 'N'),
 (855, 'Richard Trujillo', '1969-08-11', 'M', 'Français', 'O');
-INSERT INTO `patient` (`id_patient`, `NomComplet`, `DATE_naissance`, `sexe`, `langue`, `hospitalise`) VALUES
+`patient` (`id_patient`, `NomComplet`, `DATE_naissance`, `sexe`, `langue`, `hospitalise`) VALUES
 (856, 'Esther Aebi Gloor', '1972-10-15', 'F', 'Français', 'O'),
 (857, 'Shaun Irwin', '1957-11-27', 'M', 'Russe', 'N'),
 (858, 'Kimberly French', '1981-02-10', 'F', 'Italien', 'O'),
@@ -1109,7 +1109,7 @@ INSERT INTO `patient` (`id_patient`, `NomComplet`, `DATE_naissance`, `sexe`, `la
 
 
 
-INSERT INTO `profil_médical` (`id_profil_médical`, `id_patient`) VALUES
+`profil_médical` (`id_profil_médical`, `id_patient`) VALUES
 (1, 1),
 (2, 2),
 (3, 3),
@@ -2216,7 +2216,7 @@ INSERT INTO `profil_médical` (`id_profil_médical`, `id_patient`) VALUES
 (1104, 1104),
 (1105, 1105);
 
-INSERT INTO `facture` (`id_facture`, `id_patient`, `montant`, `date_`) VALUES
+`facture` (`id_facture`, `id_patient`, `montant`, `date_`) VALUES
 (1, 1, 250.5, '2024-05-10 09:00:00'),
 (2, 2, 400, '2024-05-11 10:00:00'),
 (3, 3, 180, '2024-05-12 12:00:00'),
@@ -3323,7 +3323,7 @@ INSERT INTO `facture` (`id_facture`, `id_patient`, `montant`, `date_`) VALUES
 (1104, 1104, 258.72, '2027-03-15 23:00:00'),
 (1105, 1105, 258.16, '2027-03-17 00:00:00');
 
-INSERT INTO `assurance` (`id_assurance`, `id_facture`, `description`) VALUES
+`assurance` (`id_assurance`, `id_facture`, `description`) VALUES
 (1, 1, 'Assurance maladie'),
 (2, 2, 'Assurance privée'),
 (3, 3, 'Assurance internationale'),
@@ -4436,7 +4436,7 @@ INSERT INTO `assurance` (`id_assurance`, `id_facture`, `description`) VALUES
 
 
 
-INSERT INTO `antécédents` (`id_antecedent`, `id_profil_médical`, `traitements`) VALUES
+`antécédents` (`id_antecedent`, `id_profil_médical`, `traitements`) VALUES
 (1, 1, 'Allergie pénicilline'),
 (2, 2, 'Asthme'),
 (3, 3, 'Hypertension'),
@@ -5558,7 +5558,7 @@ INSERT INTO `antécédents` (`id_antecedent`, `id_profil_médical`, `traitements
 --
 -- Table structure for table `chambre`
 --
-INSERT INTO `personnel` (`id_personnel`, `nom`, `prenom`, `DATE_embauche`, `salaire`, `affectation_specialite`, `langue`, `responsable`) VALUES
+`personnel` (`id_personnel`, `nom`, `prenom`, `DATE_embauche`, `salaire`, `affectation_specialite`, `langue`, `responsable`) VALUES
 (1, 'Martin', 'Paul', '2010-01-01', 3500, 'Radiologie', 'Français', 'Dr. House'),
 (2, 'Durand', 'Sophie', '2015-03-15', 2800, 'Urgences', 'Français', 'Dr. House'),
 (3, 'Lemoine', 'Pierre', '2018-06-20', 2000, 'Intendance', 'Français', 'Mme. Martin'),
@@ -5574,7 +5574,7 @@ INSERT INTO `personnel` (`id_personnel`, `nom`, `prenom`, `DATE_embauche`, `sala
 
 
 
-INSERT INTO `médecin` (`id_personnel`, `num_licence`) VALUES
+`médecin` (`id_personnel`, `num_licence`) VALUES
 (1, 'LIC12345'),
 (4, 'LIC67890'),
 (5, 'LIC54321'),
@@ -5584,7 +5584,7 @@ INSERT INTO `médecin` (`id_personnel`, `num_licence`) VALUES
 -- Dumping data for table `infirmier`
 --
 
-INSERT INTO `infirmier` (`id_personnel`, `niveau_certification`) VALUES
+`infirmier` (`id_personnel`, `niveau_certification`) VALUES
 (2, 'CertifA'),
 (7, 'CertifB'),
 (8, 'CertifC');
@@ -5599,7 +5599,7 @@ INSERT INTO `infirmier` (`id_personnel`, `niveau_certification`) VALUES
 -- Dumping data for table `intendance`
 --
 
-INSERT INTO `intendance` (`id_personnel`, `zone_attribuee`, `fonction`) VALUES
+`intendance` (`id_personnel`, `zone_attribuee`, `fonction`) VALUES
 (3, 'Zone 1', 'Nettoyage'),
 (9, 'Zone 2', 'Maintenance'),
 (10, 'Zone 3', 'Sécurité');
@@ -5617,7 +5617,7 @@ INSERT INTO `intendance` (`id_personnel`, `zone_attribuee`, `fonction`) VALUES
 -- Table structure for table `commande`
 --
 
-INSERT INTO `médicament` (`id_médicament`, `nom`, `description`) VALUES
+`médicament` (`id_médicament`, `nom`, `description`) VALUES
 (1, 'Paracétamol', 'Antidouleur'),
 (2, 'Ibuprofène', 'Anti-inflammatoire'),
 (3, 'Amoxicilline', 'Antibiotique'),
@@ -5631,7 +5631,7 @@ INSERT INTO `médicament` (`id_médicament`, `nom`, `description`) VALUES
 --
 -- Dumping data for table `commande`
 --
-INSERT INTO `consultation` (`id_consultation`, `id_patient`, `id_médecin`, `date`, `id_consultation_ref`, `motif`) VALUES
+`consultation` (`id_consultation`, `id_patient`, `id_médecin`, `date`, `id_consultation_ref`, `motif`) VALUES
 (0, 517, 4, '2020-04-03 20:17:16', NULL, 'Contrôle annuel'),
 (1, 301, 6, '2020-11-18 11:51:49', NULL, 'Suivi diabète'),
 (2, 764, 1, '2020-04-13 05:43:50', NULL, 'Consultation post-opératoire'),
@@ -6134,7 +6134,7 @@ INSERT INTO `consultation` (`id_consultation`, `id_patient`, `id_médecin`, `dat
 (499, 220, 5, '2021-12-07 07:14:33', NULL, 'Consultation générale');
 
 
-INSERT INTO `prescription` (`id_prescription`, `id_consultation`, `description`) VALUES
+`prescription` (`id_prescription`, `id_consultation`, `description`) VALUES
 (1, 1, 'Prendre 2x par jour'),
 (2, 2, 'Prendre après repas'),
 (3, 3, 'Prendre 1x par jour'),
@@ -6392,7 +6392,7 @@ INSERT INTO `prescription` (`id_prescription`, `id_consultation`, `description`)
 (255, 415, 'Prendre pendant 7 jours');
 
 
-INSERT INTO `commande` (`id_commande`, `id_médicament`, `id_prescription`) VALUES
+`commande` (`id_commande`, `id_médicament`, `id_prescription`) VALUES
 (1, 1, 1),
 (2, 2, 2),
 (3, 1, 3),
@@ -6720,7 +6720,7 @@ INSERT INTO `commande` (`id_commande`, `id_médicament`, `id_prescription`) VALU
 -- Dumping data for table `contact`
 --
 
-INSERT INTO `contact` (`id_contact`, `id_patient`, `adresse`, `telephone`, `num_assurance`) VALUES
+`contact` (`id_contact`, `id_patient`, `adresse`, `telephone`, `num_assurance`) VALUES
 (1, 1, 'Genève', '0600000001', 'ASSUR123'),
 (2, 2, 'Vaud', '0600000002', 'ASSUR456'),
 (3, 3, 'Valais', '0600000003', 'ASSUR789'),
@@ -7834,7 +7834,7 @@ INSERT INTO `contact` (`id_contact`, `id_patient`, `adresse`, `telephone`, `num_
 -- Table structure for table `facture`
 --
 
-INSERT INTO `équipement` (`id_équipement`, `nom`, `type`) VALUES
+INSERT INTO `equipement` (`id_equipement`, `nom`, `type`) VALUES
 (1, 'Scanner', 'Imagerie'),
 (2, 'Lit médical', 'Mobilier');
 
@@ -8178,7 +8178,7 @@ INSERT INTO `urgence` (`id_urgence`, `id_patient`, `id_médecin`, `date`, `descr
 
 
 --
--- Dumping data for table `équipement`
+-- Dumping data for table `equipement`
 --
 
 --
