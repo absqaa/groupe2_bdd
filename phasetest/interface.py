@@ -32,12 +32,12 @@ st.title("🏥 Système de Gestion Hospitalière")
 
 menu = st.sidebar.selectbox(
     "Sélectionnez une action",
-    [
+    [        
+        "Enregistrer un Patient",
         "Ajouter une Hospitalisation",
         "Ajouter une Urgence",
         "Ajouter une Consultation",
         "Voir les Données",
-        "Enregistrer un Patient",
         "Statistiques & Requêtes"
 
     ]
