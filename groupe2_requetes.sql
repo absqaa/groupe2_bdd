@@ -1,4 +1,4 @@
---- 4.1.1
+--- Historique de médicament
 SELECT
     m.nom AS NomMedicament,
     COUNT(pr.id_prescription) AS NombreDeUtilisations
@@ -9,18 +9,22 @@ GROUP BY m.nom
 ORDER BY NombreDeUtilisations DESC;
 
 
---- 4.1.2
+--- Suivi des prescriptions médicales par patient
 SELECT
     m.nom AS NomMedicament,
-    COUNT(pr.id_prescription) AS NombreDeUtilisations
+    m.description AS DescriptionMedicament,
+    pr.date AS DatePrescription,
+    pr.description AS DescriptionPrescription,
+    cm.id_commande AS IdCommande 
 FROM Médicament AS m
-JOIN Commande as cm on m.id_médicament = cm.id_médicament
-JOIN Prescription AS pr ON cm.id_prescription = pr.id_prescription
-GROUP BY m.nom
-ORDER BY NombreDeUtilisations DESC;
+JOIN Commande AS cm ON m.id_médicament = cm.id_médicament 
+JOIN prescription as pr on cm.id_prescription = pr.id_prescription
+JOIN Consultation AS c ON pr.id_consultation = c.id_consultation
+JOIN Patient AS pat ON c.id_patient = pat.id_patient
+WHERE pat.id_patient = 1;
 
 
---- 4.1.3
+--- Comptabilise toutes les factures pour envoyer aux assurances
 SELECT
     p.NomComplet,
     SUM(f.montant) AS MontantàPayer,
@@ -33,7 +37,7 @@ JOIN Assurance AS a ON f.id_facture = a.id_facture
 JOIN Patient AS p ON f.id_patient = p.id_patient
 GROUP BY p.NomComplet;
 
---- 4.1.4
+--- Nombre d’urgences mensuels
 SELECT
     DATE_FORMAT(date, '%Y-%m') AS MoisDeLUrgence,
     COUNT(id_urgence) AS NombreTotalUrgences
@@ -44,7 +48,7 @@ GROUP BY
 ORDER BY
     NombreTotalUrgences DESC;
 
---- 4.1.5
+---  Liste des patients avec des antécédents médicaux ayant eu au moins 2 hospitalisations en 1 an
 SELECT
     p.NomComplet,
     a.traitements,
@@ -69,8 +73,7 @@ ORDER BY
 	NombreHospitalisationsRecentes DESC;
 
 
--- -- 4.1.6
-
+--- Actualisation automatique du statut du patient
 DELIMITER $$
 CREATE TRIGGER trg_patient_hospitalise_on_urgence_admission
 AFTER INSERT ON Urgence

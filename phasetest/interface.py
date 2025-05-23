@@ -32,8 +32,18 @@ st.title("🏥 Système de Gestion Hospitalière")
 
 menu = st.sidebar.selectbox(
     "Sélectionnez une action",
-    ["Ajouter une Hospitalisation", "Ajouter une Urgence", "Voir les Données", "Enregistrer un Patient"]
+    [
+        "Ajouter une Hospitalisation",
+        "Ajouter une Urgence",
+        "Ajouter une Consultation",
+        "Voir les Données",
+        "Enregistrer un Patient",
+        "Statistiques & Requêtes"
+
+    ]
 )
+
+
 
 if menu == "Ajouter une Hospitalisation":
     st.subheader("➕ Ajouter une Hospitalisation")
@@ -80,6 +90,36 @@ elif menu == "Ajouter une Urgence":
             (next_id, selected_patient[0], selected_Médecin[0], full_datetime, description)
         )
         st.success("Urgence enregistrée avec succès.")
+
+elif menu == "Ajouter une Consultation":
+    st.subheader("🩺 Ajouter une Consultation")
+
+    patients = fetch_data("SELECT id_patient, NomComplet FROM Patient")
+    Médecins = fetch_data("SELECT id_personnel, num_licence FROM Médecin")
+    consultations = fetch_data("SELECT id_consultation, motif FROM Consultation")
+
+    selected_patient = st.selectbox("Patient", patients, format_func=lambda x: f"{x[0]} - {x[1]}")
+    selected_Médecin = st.selectbox("Médecin", Médecins, format_func=lambda x: f"{x[0]} - {x[1]}")
+    date_consult = st.date_input("Date de la consultation")
+    time_consult = st.time_input("Heure de la consultation")
+    motif = st.text_area("Motif de la consultation")
+    selected_ref = st.selectbox(
+        "Consultation de référence (optionnel)", 
+        [("", "")] + consultations, 
+        format_func=lambda x: f"{x[0]} - {x[1]}" if x[0] != "" else "Aucune"
+    )
+
+    full_datetime = datetime.combine(date_consult, time_consult)
+    id_consultation_ref = selected_ref[0] if selected_ref[0] != "" else None
+
+    if st.button("📥 Enregistrer la Consultation"):
+        next_id = get_next_id("Consultation", "id_consultation")
+        execute_query(
+            "INSERT INTO Consultation (id_consultation, id_patient, id_médecin, date, id_consultation_ref, motif) VALUES (?, ?, ?, ?, ?, ?)",
+            (next_id, selected_patient[0], selected_Médecin[0], full_datetime, id_consultation_ref, motif)
+        )
+        st.success("Consultation enregistrée avec succès.")
+
 elif menu == "Enregistrer un Patient":
     st.subheader("🧑‍⚕️ Enregistrer un Patient")
 
@@ -141,8 +181,77 @@ elif menu == "Enregistrer un Patient":
 
 elif menu == "Voir les Données":
     st.subheader("📄 Voir les Données")
-    table = st.selectbox("Choisir la table", ["Hospitalisation", "Urgence", "Patient", "Médecin"])
+    table = st.selectbox("Choisir la table", ["Hospitalisation", "Urgence", "Consultation", "Patient", "Médecin"])
 
-    if st.button("🔍 Afficher"):
+    if st.button("🔍 Afficher") or "rows" in st.session_state:
+        # session_state to persist rows after button click
         rows = fetch_data(f"SELECT * FROM {table}")
+        st.session_state["rows"] = rows
+        st.session_state["table"] = table
+    else:
+        rows = st.session_state.get("rows", [])
+        table = st.session_state.get("table", table)
+
+    if rows:
         st.dataframe(rows)
+        id_col = [desc[0] for desc in get_connection().execute(f"PRAGMA table_info({table})")][0]
+        ids = [row[0] for row in rows]
+        selected_id = st.selectbox(f"ID à supprimer dans {table}", ids, key=f"delete_{table}")
+
+        if st.button("🗑️ Supprimer la ligne sélectionnée"):
+            execute_query(f"DELETE FROM {table} WHERE {f'id_{table}'} = ?", (selected_id,))
+            st.success(f"Ligne avec ID {selected_id} supprimée de {table}.")
+            st.session_state["rows"] = fetch_data(f"SELECT * FROM {table}")
+            
+            
+elif menu == "Statistiques & Requêtes":
+    st.subheader("📊 Statistiques & Requêtes SQL")
+    
+    # Charger toutes les requêtes SQL depuis le fichier groupe2_requetes.sql
+    def load_requests_from_file(filename):
+        with open(filename, "r", encoding="utf-8") as f:
+            content = f.read()
+        # Séparer les requêtes par ';' (en ignorant les lignes vides et commentaires)
+        requests = [req.strip() for req in content.split(";") if req.strip() and not req.strip().startswith("--")]
+        return requests
+
+    requetes = {}
+    with open("groupe2_requetes.sql", "r", encoding="utf-8") as f:
+        lines = f.readlines()
+    current_key = None
+    current_query = []
+    for line in lines:
+        if line.strip().startswith("-"):
+            if current_key and current_query:
+                requetes[current_key] = "".join(current_query).strip()
+                current_query = []
+            current_key = line.strip().lstrip("-").strip()
+        else:
+            current_query.append(line)
+    if current_key and current_query:
+        requetes[current_key] = "".join(current_query).strip()
+        
+    choix = st.selectbox("Choisissez une requête", list(requetes.keys()))
+    if choix == 'Suivi des prescriptions médicales par patient':
+        patient_id = st.selectbox("Sélectionnez un ID de patient", [row[0] for row in fetch_data("SELECT id_patient FROM Patient")])
+        if st.button("Exécuter la requête pour le patient sélectionné"):
+            request = f"""SELECT
+            m.nom AS NomMedicament,
+            m.description AS DescriptionMedicament,
+            pr.description AS DescriptionPrescription,
+            cm.id_commande AS IdCommande 
+            FROM Médicament AS m
+            JOIN Commande AS cm ON m.id_médicament = cm.id_médicament 
+            JOIN prescription AS pr ON cm.id_prescription = pr.id_prescription
+            JOIN Consultation AS c ON pr.id_consultation = c.id_consultation
+            JOIN Patient AS pat ON c.id_patient = pat.id_patient
+            WHERE pat.id_patient = {patient_id}"""
+            print(request)
+            result = fetch_data(request)
+            st.write(f"Résultat pour : **{choix}**")
+            st.dataframe(result)
+    else:
+        if st.button("Exécuter la requête"):
+            result = fetch_data(requetes[choix])
+            st.write(f"Résultat pour : **{choix}**")
+            st.dataframe(result)
