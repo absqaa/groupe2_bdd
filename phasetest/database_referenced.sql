@@ -43,8 +43,8 @@ CREATE TABLE Intendance (
     FOREIGN KEY (id_personnel) REFERENCES Personnel (id_personnel)
 );
 
-CREATE TABLE equipement (
-    id_equipement INT PRIMARY KEY,
+CREATE TABLE équipement (
+    id_équipement INT PRIMARY KEY,
     nom VARCHAR(50),
     type VARCHAR(50)
 );
@@ -54,8 +54,8 @@ CREATE TABLE Service (
     nom_service VARCHAR(50),
     id_equipement_origine INT,
     id_equipement_attribue INT,
-    FOREIGN KEY (id_equipement_origine) REFERENCES equipement (id_equipement),
-    FOREIGN KEY (id_equipement_attribue) REFERENCES equipement (id_equipement)
+    FOREIGN KEY (id_equipement_origine) REFERENCES équipement (id_équipement),
+    FOREIGN KEY (id_equipement_attribue) REFERENCES équipement (id_équipement)
 );
 
 CREATE TABLE Locaux (

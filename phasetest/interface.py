@@ -235,18 +235,19 @@ elif menu == "Statistiques & Requêtes":
     if choix == 'Suivi des prescriptions médicales par patient':
         patient_id = st.selectbox("Sélectionnez un ID de patient", [row[0] for row in fetch_data("SELECT id_patient FROM Patient")])
         if st.button("Exécuter la requête pour le patient sélectionné"):
-            request = f"""SELECT
-            m.nom AS NomMedicament,
-            m.description AS DescriptionMedicament,
-            pr.description AS DescriptionPrescription,
-            cm.id_commande AS IdCommande 
-            FROM Médicament AS m
-            JOIN Commande AS cm ON m.id_médicament = cm.id_médicament 
-            JOIN prescription AS pr ON cm.id_prescription = pr.id_prescription
-            JOIN Consultation AS c ON pr.id_consultation = c.id_consultation
-            JOIN Patient AS pat ON c.id_patient = pat.id_patient
-            WHERE pat.id_patient = {patient_id}"""
-            print(request)
+            request = f"""
+SELECT
+    m.nom AS NomMedicament,
+    m.description AS DescriptionMedicament,
+    pr.description AS DescriptionPrescription,
+    cm.id_commande AS IdCommande 
+FROM Médicament AS m
+LEFT JOIN Commande AS cm ON m.id_médicament = cm.id_médicament 
+LEFT JOIN prescription as pr on cm.id_prescription = pr.id_prescription
+LEFT JOIN Consultation AS c ON pr.id_consultation = c.id_consultation
+LEFT JOIN Patient AS pat ON c.id_patient = pat.id_patient
+WHERE pat.id_patient = 1;
+"""        
             result = fetch_data(request)
             st.write(f"Résultat pour : **{choix}**")
             st.dataframe(result)

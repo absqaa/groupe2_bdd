@@ -13,7 +13,6 @@ ORDER BY NombreDeUtilisations DESC;
 SELECT
     m.nom AS NomMedicament,
     m.description AS DescriptionMedicament,
-    pr.date AS DatePrescription,
     pr.description AS DescriptionPrescription,
     cm.id_commande AS IdCommande 
 FROM Médicament AS m
